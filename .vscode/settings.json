@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "student_op.h": "c",
+        "raygui.h": "c"
+    }
+}
