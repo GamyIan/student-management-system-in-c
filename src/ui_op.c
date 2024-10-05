@@ -196,72 +196,106 @@ void DrawSearchStudentUI(bool *search_button_pressed) {
 
 
 // Function to draw UI for editing a student
-void DrawEditStudentUI(bool *edit_button_pressed, bool *save_button_pressed) {
+void DrawEditStudentUI(bool *edit_button_pressed) {
     DrawText("Edit Student", 10, 100, 20, DARKGRAY);
 
-    // Static variables to hold input and status
-    static char uid_input[10] = {0};
-    static bool student_not_found = false;
-    static Student found_student;
-    static bool student_found = false;
+    static char uid_input[MAX_INPUT_LEN] = {0};  // Input for the UID to be searched
+    static Student found_student;                // Holds the student data to be edited
+    static bool student_found = false;           // Tracks if a student was found
 
-    // Search input field for UID
+    // Input field for the UID to search for the student
     GuiLabel((Rectangle){ 10, 140, 100, 30 }, "UID:");
-    ManageTextBoxFocus((Rectangle){ 120, 140, 200, 30 }, uid_input, sizeof(uid_input), 0);
+    ManageTextBoxFocus((Rectangle){ 120, 140, 200, 30 }, uid_input, MAX_INPUT_LEN, 0);
 
+    // Search button
     *edit_button_pressed = GuiButton((Rectangle){ 10, 180, 100, 30 }, "Search");
 
     if (*edit_button_pressed) {
-        int uid = atoi(uid_input);
-        Student *student = search_student(uid);
+        // Convert UID input to integer
+        if (strlen(uid_input) > 0) {
+            int uid = atoi(uid_input);
+            Student *student = search_student(uid);
 
-        if (student != NULL) {
-            found_student = *student; // Copy found student details to static storage
-            student_found = true;
-            student_not_found = false;
-            free(student);
+            if (student != NULL) {
+                // Store the found student in a static variable for persistent display and editing
+                found_student = *student;
+                student_found = true;
+
+                // Free the memory allocated by `search_student()`
+                free(student);
+            } else {
+                student_found = false;
+            }
         } else {
-            student_not_found = true;
             student_found = false;
         }
     }
 
-    // Display student details if found, with editable fields
     if (student_found) {
-        int startY = 220;
+        // Editable textboxes for all student details
+        static char roll_number_input[MAX_INPUT_LEN] = {0};
+        static char name_input[MAX_NAME_LEN] = {0};
+        static char major_input[MAX_NAME_LEN] = {0};
+        static char minor_input[MAX_NAME_LEN] = {0};
+        static char oe1_input[MAX_NAME_LEN] = {0};
+        static char oe2_input[MAX_NAME_LEN] = {0};
 
-        GuiLabel((Rectangle){ 10, startY, 100, 30 }, "Name:");
-        ManageTextBoxFocus((Rectangle){ 120, startY, 200, 30 }, found_student.name, sizeof(found_student.name), 1);
-        startY += 40;
+        // Initialize the fields with existing data if not already initialized
+        if (*edit_button_pressed) {
+            snprintf(roll_number_input, MAX_INPUT_LEN, "%d", found_student.roll_number);
+            strncpy(name_input, found_student.name, MAX_NAME_LEN);
+            strncpy(major_input, found_student.major, MAX_NAME_LEN);
+            strncpy(minor_input, found_student.minor, MAX_NAME_LEN);
+            strncpy(oe1_input, found_student.oe1, MAX_NAME_LEN);
+            strncpy(oe2_input, found_student.oe2, MAX_NAME_LEN);
+        }
 
-        GuiLabel((Rectangle){ 10, startY, 100, 30 }, "Major:");
-        ManageTextBoxFocus((Rectangle){ 120, startY, 200, 30 }, found_student.major, sizeof(found_student.major), 2);
-        startY += 40;
+        // Textboxes for editing details
+        GuiLabel((Rectangle){ 10, 220, 100, 30 }, "Roll Number:");
+        ManageTextBoxFocus((Rectangle){ 120, 220, 200, 30 }, roll_number_input, MAX_INPUT_LEN, 1);
 
-        GuiLabel((Rectangle){ 10, startY, 100, 30 }, "Minor:");
-        ManageTextBoxFocus((Rectangle){ 120, startY, 200, 30 }, found_student.minor, sizeof(found_student.minor), 3);
-        startY += 40;
+        GuiLabel((Rectangle){ 10, 260, 100, 30 }, "Name:");
+        ManageTextBoxFocus((Rectangle){ 120, 260, 200, 30 }, name_input, MAX_NAME_LEN, 2);
 
-        GuiLabel((Rectangle){ 10, startY, 100, 30 }, "OE1:");
-        ManageTextBoxFocus((Rectangle){ 120, startY, 200, 30 }, found_student.oe1, sizeof(found_student.oe1), 4);
-        startY += 40;
+        GuiLabel((Rectangle){ 10, 300, 100, 30 }, "Major:");
+        ManageTextBoxFocus((Rectangle){ 120, 300, 200, 30 }, major_input, MAX_NAME_LEN, 3);
 
-        GuiLabel((Rectangle){ 10, startY, 100, 30 }, "OE2:");
-        ManageTextBoxFocus((Rectangle){ 120, startY, 200, 30 }, found_student.oe2, sizeof(found_student.oe2), 5);
-        startY += 40;
+        GuiLabel((Rectangle){ 10, 340, 100, 30 }, "Minor:");
+        ManageTextBoxFocus((Rectangle){ 120, 340, 200, 30 }, minor_input, MAX_NAME_LEN, 4);
 
-        *save_button_pressed = GuiButton((Rectangle){ 10, startY, 100, 30 }, "Save");
-        if (*save_button_pressed) {
+        GuiLabel((Rectangle){ 10, 380, 100, 30 }, "OE1:");
+        ManageTextBoxFocus((Rectangle){ 120, 380, 200, 30 }, oe1_input, MAX_NAME_LEN, 5);
+
+        GuiLabel((Rectangle){ 10, 420, 100, 30 }, "OE2:");
+        ManageTextBoxFocus((Rectangle){ 120, 420, 200, 30 }, oe2_input, MAX_NAME_LEN, 6);
+
+        // Save button to apply changes
+        bool save_button_pressed = GuiButton((Rectangle){ 10, 460, 100, 30 }, "Save");
+
+        if (save_button_pressed) {
+            // Convert edited data and save it back to the student
+            found_student.roll_number = atoi(roll_number_input);
+            strncpy(found_student.name, name_input, MAX_NAME_LEN - 1);
+            found_student.name[MAX_NAME_LEN - 1] = '\0';
+
+            strncpy(found_student.major, major_input, MAX_NAME_LEN - 1);
+            found_student.major[MAX_NAME_LEN - 1] = '\0';
+
+            strncpy(found_student.minor, minor_input, MAX_NAME_LEN - 1);
+            found_student.minor[MAX_NAME_LEN - 1] = '\0';
+
+            strncpy(found_student.oe1, oe1_input, MAX_NAME_LEN - 1);
+            found_student.oe1[MAX_NAME_LEN - 1] = '\0';
+
+            strncpy(found_student.oe2, oe2_input, MAX_NAME_LEN - 1);
+            found_student.oe2[MAX_NAME_LEN - 1] = '\0';
+
+            // Update the student data
             edit_student(found_student.uid, found_student);
-            student_found = false; // Reset after saving
         }
     }
-
-    // Display "Student Not Found" message if applicable and there is no ongoing search
-    if (student_not_found && !student_found) {
-        DrawText("Student not found.", 10, 220, 20, RED);
-    }
 }
+
 
 // Function to draw UI for listing all students
 void DrawListStudentsUI() {
