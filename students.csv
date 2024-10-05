@@ -1,3 +1,67 @@
-2405024,21,Ian,Bsc IT,BAF (FS),Economics,Economics
-2405004,3,Onasus,Bsc IT,BAF (AF),Psychology,Accounting
-2405020,2,Anda Burji Man,Minor,Illegal,OE2,pp
+﻿UID,ROLL,NAME,MAJOR,MINOR,OE1,OE2
+2405001,1,Gladwin Gomes,BSc IT,BAF (FS),Nature & Conservation,Demystifying Mental Illness
+2405002,2,Reshal,BSc IT,BAF (A/c),Psch. Visual Art,French
+2405004,3,Onasis Rodrigues,BSc IT,BAF (A/c),Accounting,Demystifying Mental Illness
+2405005,4,Prion Machado,BSc IT,BAF (FS),Economics,IPRS
+2405006,5,Blaise Pegado,BSc IT,BAF (A/c),Accounting,IPRS
+2405007,6,Abigail Sayoj,BSc IT,BMS,Accounting,Taxation
+2405008,7,Aayush Nambiar,BSc IT,BMS,Economics,Investment Analysis
+2405009,8,Joshua Barboza,BSc IT,BA MCJ,Mass Communication,Economics
+2405010,9,Yashoda Bhandari,BSc IT,BMS,Accounting,Investment Analysis
+2405011,10,Khushi Doshi,BSc IT,BMS,Psch. Visual Art,French
+2405012,11,Omkar Bommakanti,BSc IT,BAF (A/c),Economics,IPRS
+2405014,12,Madiha Batliwala,BSc IT,BA MCJ,Mass Communication,Tourism Mgmt
+2405015,13,Sarvika Rajula,BSc IT,BAF (A/c),Accounting,Investment Analysis
+2405016,14,Karan Singh,BSc IT,BMS,Financial Literacy,French
+2405017,15,Udit Lal,BSc IT,BMS,Economics,Economics
+2405018,16,Abhinav Kumar,BSc IT,BMS,Financial Literacy,Demystifying Mental Illness
+2405019,17,Eshaan Sinha,BSc IT,BMS,Accounting,Taxation
+2405020,18,Neeraj Krishna,BSc IT,BMS,Mass Communication,Investment Analysis
+2405022,19,Aaditya Sharma,BSc IT,BMS,Mass Communication,French
+2405023,20,Yuvraj Singh,BSc IT,BMS,Accounting,Investment Analysis
+2405024,21,Ian Reddy,BSc IT,BAF (FS),Economics,Economics
+2405026,22,Shivam Chakraborty,BSc IT,BMS,Economics,Investment Analysis
+2405028,23,Naren Arun,BSc IT,BMS,Mass Communication,Investment Analysis
+2405029,24,Prakash Sonawane,BSc IT,BA MCJ,Mass Communication,French
+2405030,25,Sidharth Vakkan,BSc IT,BMS,Economics,Investment Analysis
+2405031,26,Ashish Soren,BSc IT,BMS,Mass Communication,French
+2405032,27,Ansh Chauhan,BSc IT,BMS,Economics,Taxation
+2405033,28,Siddhi Gite,BSc IT,BMS,Nature & Conservation,Demystifying Mental Illness
+2405034,29,Ansh Sambare,BSc IT,BA MCJ,Psch. Visual Art,Taxation
+2405035,30,Arijeet Ray,BSc IT,BA MCJ,Nature & Conservation,Demystifying Mental Illness
+2405036,31,Krutansh Shah,BSc IT,BAF (FS),Economics,IPRS
+2405037,32,Sneha Paul,BSc IT,BMS,Financial Literacy,Demystifying Mental Illness
+2405038,33,Vedanth Teckchandani,BSc IT,BMS,Financial Literacy,Investment Analysis
+2405039,34,Dwayne Dsouza,BSc IT,BMS,Financial Literacy,Taxation
+2405040,35,Ryan Lobo,BSc IT,BMS,Accounting,Investment Analysis
+2405041,36,Shaun Joseph,BSc IT,BMS,Nature & Conservation,French
+2405042,37,Selene Easo,BSc IT,BMS,Psch. Visual Art,French
+2405043,38,Lareina Cortez,BSc IT,BMS,Financial Literacy,IPRS
+2405044,39,Shayna Lopes,BSc IT,BAF (A/c),Accounting,French
+2405045,40,Jereena Kalapurackal,BSc IT,BAF (A/c),Financial Literacy,Taxation
+2405046,41,Vernon Lobo,BSc IT,BA MCJ,Psch. Visual Art,French
+2405047,42,Labana Gurubakshsingh,BSc IT,BMS,Financial Literacy,IPRS
+2405048,43,Pratham Pingle,BSc IT,BMS,Nature & Conservation,IPRS
+2405049,44,Sarah Mandviwala,BSc IT,BMS,Psch. Visual Art,French
+2405050,45,Saksham Dais,BSc IT,BMS,Psch. Visual Art,Current Media
+2405051,46,Manthan Ahuja,BSc IT,BAF (FS),Economics,Taxation
+2405052,47,Yash Lamkhade,BSc IT,BA MCJ,Accounting,French
+2405053,48,Vivedha Shanmugam,BSc IT,BMS,Mass Communication,Demystifying Mental Illness
+2405054,49,Shreyas Bhandary,BSc IT,BMS,Psch. Visual Art,French
+2405055,50,Janhavi Rathi,BSc IT,BMS,Psch. Visual Art,French
+2405056,51,Sushmita Sharma,BSc IT,BAF (A/c),Psch. Visual Art,IPRS
+2405057,52,Anant Yadav,BSc IT,BMS,Nature & Conservation,Taxation
+2405058,53,Rupali Raj,BSc IT,BMS,Psch. Visual Art,Taxation
+2405059,54,Lenin Mathias,BSc IT,BAF (FS),Financial Literacy,Taxation
+2405060,55,Ashley Noronha,BSc IT,BMS,Economics,Investment Analysis
+2405061,56,Sheldon Sequeira,BSc IT,BMS,Financial Literacy,Investment Analysis
+2405062,57,Noel Pereira,BSc IT,BA MCJ,Mass Communication,Investment Analysis
+2405063,58,Vaishvi Chandra,BSc IT,BAF (FS),Financial Literacy,Investment Analysis
+2405064,59,Lionel Sequeira,BSc IT,BA MCJ,Nature & Conservation,Investment Analysis
+2405065,60,Sansy Pegado,BSc IT,BMS,Psch. Visual Art,Tourism Mgmt
+2405066,61,Alister Robin,BSc IT,BAF (A/c),Financial Literacy,Investment Analysis
+2405067,62,Jovin Dsouza,BSc IT,BAF (A/c),Nature & Conservation,French
+2405068,63,Lance Gonsalves,BSc IT,BAF (FS),Mass Communication,French
+2405069,64,Kaloni Dsouza,BSc IT,BA MCJ,Psch. Visual Art,Taxation
+2405070,65,Meenu Sanjith,BSc IT,BA MCJ,Psch. Visual Art,Demystifying Mental Illness
+2405071,66,Liza Fernandes,BSc IT,BA MCJ,Nature & Conservation,French

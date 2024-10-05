@@ -30,7 +30,7 @@ void remove_student_from_csv(int uid) {
     char line[512];
     while (fgets(line, sizeof(line), file)) {
         Student student;
-        sscanf(line, "%d,%d,%99[^,],%49[^,],%49[^,],%49[^,],%49[^,\n]",
+        sscanf(line, "%d,%d,%99[^,],%99[^,],%99[^,],%99[^,],%99[^,\n]",
                &student.uid, &student.roll_number, student.name,
                student.major, student.minor, student.oe1, student.oe2);
 
@@ -58,7 +58,7 @@ Student* load_all_students(int *count) {
 
     char line[512];
     while (fgets(line, sizeof(line), file)) {
-        sscanf(line, "%d,%d,%99[^,],%49[^,],%49[^,],%49[^,],%49[^,\n]",
+        sscanf(line, "%d,%d,%99[^,],%99[^,],%99[^,],%99[^,],%99[^,\n]",
                &students[*count].uid, &students[*count].roll_number, students[*count].name,
                students[*count].major, students[*count].minor, students[*count].oe1, students[*count].oe2);
         (*count)++;
@@ -80,7 +80,7 @@ void update_student_in_csv(int uid, Student new_data) {
     char line[512];
     while (fgets(line, sizeof(line), file)) {
         Student student;
-        sscanf(line, "%d,%d,%99[^,],%49[^,],%49[^,],%49[^,],%49[^,\n]",
+        sscanf(line, "%d,%d,%99[^,],%99[^,],%99[^,],%99[^,],%99[^,\n]",
                &student.uid, &student.roll_number, student.name,
                student.major, student.minor, student.oe1, student.oe2);
 

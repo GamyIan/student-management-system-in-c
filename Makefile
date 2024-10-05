@@ -11,6 +11,7 @@ EXEC = student_management.exe
 # Default Target
 all: $(OBJ)
 	$(CC) $(OBJ) -o $(EXEC) $(LDFLAGS)
+	rm -f $(OBJ)
 
 # Object File Compilation
 %.o: %.c
