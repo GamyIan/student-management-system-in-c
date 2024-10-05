@@ -1,6 +1,6 @@
 # Student Management System
 
-A simple Student management system using raylib for gui.
+A simple Student management system made in C using raylib for gui.
 
 ## Project done by:
 | Name          | UID     | Roll |
