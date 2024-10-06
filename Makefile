@@ -12,6 +12,7 @@ EXEC = student_management.exe
 all: $(OBJ)
 	$(CC) $(OBJ) -o $(EXEC) $(LDFLAGS)
 	rm -f $(OBJ)
+	./$(EXEC)
 
 # Object File Compilation
 %.o: %.c

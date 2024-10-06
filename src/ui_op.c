@@ -42,7 +42,7 @@ bool ManageTextBoxFocus(Rectangle bounds, char *input, int maxLength, int boxInd
 
 // Function to draw UI for adding a student
 void DrawAddStudentUI(bool *confirm_button_pressed) {
-    DrawText("Add Student", 10, 100, 30, DARKGRAY); // Increased font size to 30
+    DrawText("Add Student", 10, 100, 30, DARKGRAY);
 
     // Local variables to store input data for the function
     static char uid_input[10] = {0};
@@ -366,7 +366,7 @@ void DrawListStudentsUI() {
         DrawText("No students found.", 10, 140, 20, RED);
     } else {
         // Constants for pagination
-        const int students_per_page = 10;
+        const int students_per_page = 20;
         static int current_page = 0;
         int total_pages = ((count - 1) + students_per_page - 1) / students_per_page;
 

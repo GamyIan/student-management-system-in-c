@@ -28,6 +28,12 @@ int main() {
         // Title
         DrawText("Student Management System", 10, 10, 20, DARKGRAY);
 
+        // Credits
+        DrawText("Project by,\n\nIan & Gladwin", 1400, 700, 20, DARKGREEN);
+
+        // Setting GuiStyle
+        GuiSetStyle(DEFAULT, TEXT_SIZE, 13);  // Setting Global Gui Text Size
+
         // Action buttons laid out horizontally
         if (GuiButton((Rectangle){ 10, 50, 120, 30 }, "Add Student")) current_action = 0;
         if (GuiButton((Rectangle){ 140, 50, 120, 30 }, "Remove Student")) current_action = 1;
