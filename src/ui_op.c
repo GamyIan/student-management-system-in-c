@@ -372,39 +372,63 @@ void DrawListStudentsUI() {
 
         // Define start position for student list display
         int startX = 10;
-        int startY = 140;
+        int startY = 160;
+        int rowHeight = 30;
 
         // Adjusted column spacings based on your preferences
-        DrawText("UID", startX, startY, 20, DARKBLUE);
-        DrawText("Name", startX + 100, startY, 20, DARKBLUE);
-        DrawText("Major", startX + 400, startY, 20, DARKBLUE);
-        DrawText("Minor", startX + 500, startY, 20, DARKBLUE);
-        DrawText("OE1", startX + 650, startY, 20, DARKBLUE);
-        DrawText("OE2", startX + 920, startY, 20, DARKBLUE);
+        int uid_col = startX;
+        int name_col = startX + 100;
+        int major_col = startX + 400;
+        int minor_col = startX + 500;
+        int oe1_col = startX + 650;
+        int oe2_col = startX + 920;
 
-        // Calculate start and end indices for the current page, starting from the second student
-        int start_index = 1 + (current_page * students_per_page);
+        // Draw the table headers
+        DrawLine(startX, startY - 20, oe2_col + 300, startY - 20, DARKGRAY); // Top border
+        DrawText("UID", uid_col + 5, startY - 20, 20, DARKBLUE);
+        DrawText("Name", name_col + 5, startY - 20, 20, DARKBLUE);
+        DrawText("Major", major_col + 5, startY - 20, 20, DARKBLUE);
+        DrawText("Minor", minor_col + 5, startY - 20, 20, DARKBLUE);
+        DrawText("OE1", oe1_col + 5, startY - 20, 20, DARKBLUE);
+        DrawText("OE2", oe2_col + 5, startY - 20, 20, DARKBLUE);
+
+        // Calculate start and end indices for the current page (skip the first student entry)
+        int start_index = current_page * students_per_page + 1;
         int end_index = start_index + students_per_page;
         if (end_index > count) {
             end_index = count;
         }
 
         // Iterate through students and display relevant information for the current page
-        startY += 30;  // Move down to start displaying students
+        int currentY = startY + 10;
         for (int i = start_index; i < end_index; i++) {
-            DrawText(TextFormat("%07d", students[i].uid), startX, startY, 20, DARKGRAY); // UID with leading zeros if needed, 7 digits
-            DrawText(students[i].name, startX + 100, startY, 20, DARKGRAY); // Name column
-            DrawText(students[i].major, startX + 400, startY, 20, DARKGRAY); // Major (e.g., "BSc IT")
-            DrawText(students[i].minor, startX + 500, startY, 20, DARKGRAY); // Minor (e.g., "BAF - Financial Markets")
-            DrawText(students[i].oe1, startX + 650, startY, 20, DARKGRAY); // OE1 (e.g., "Demystifying Mental Illness")
-            DrawText(students[i].oe2, startX + 920, startY, 20, DARKGRAY); // OE2 (e.g., "Demystifying Mental Illness")
+            currentY += rowHeight;  // Move down for each student entry
 
-            startY += 30;  // Move down for each student entry
+            // Draw row separators
+            DrawLine(startX, currentY, oe2_col + 300, currentY, DARKGRAY);
+
+            // Draw the student data in each column
+            DrawText(TextFormat("%07d", students[i].uid), uid_col + 5, currentY, 20, DARKGRAY); // UID with leading zeros if needed, 7 digits
+            DrawText(students[i].name, name_col + 5, currentY, 20, DARKGRAY); // Name column
+            DrawText(students[i].major, major_col + 5, currentY, 20, DARKGRAY); // Major
+            DrawText(students[i].minor, minor_col + 5, currentY, 20, DARKGRAY); // Minor 
+            DrawText(students[i].oe1, oe1_col + 5, currentY, 20, DARKGRAY); // OE1
+            DrawText(students[i].oe2, oe2_col + 5, currentY, 20, DARKGRAY); // OE2
         }
+        int endY = currentY + rowHeight;
+        DrawLine(uid_col, startY - 20, uid_col, endY, DARKGRAY);    // Vertical line for UID column
+        DrawLine(name_col, startY - 20, name_col, endY, DARKGRAY);  // Vertical line for Name column
+        DrawLine(major_col, startY - 20, major_col, endY, DARKGRAY); // Vertical line for Major column
+        DrawLine(minor_col, startY - 20, minor_col, endY, DARKGRAY); // Vertical line for Minor column
+        DrawLine(oe1_col, startY - 20, oe1_col, endY, DARKGRAY);    // Vertical line for OE1 column
+        DrawLine(oe2_col, startY - 20, oe2_col, endY, DARKGRAY);    // Vertical line for OE2 column
+        DrawLine(oe2_col + 300, startY - 20, oe2_col + 300, endY, DARKGRAY); // Rightmost border at +300
+        DrawLine(startX, currentY + rowHeight, oe2_col + 300, currentY + rowHeight, DARKGRAY);  // Last Line
 
-        // Draw Previous and Next buttons
-        bool prev_button_pressed = GuiButton((Rectangle){ 10, startY + 10, 100, 30 }, "Previous");
-        bool next_button_pressed = GuiButton((Rectangle){ 120, startY + 10, 100, 30 }, "Next");
+        // Draw Previous and Next buttons for pagination
+        bool prev_button_pressed = GuiButton((Rectangle){ 10, 850, 100, 30 }, "Previous");  // Fixed position for Previous button
+        bool next_button_pressed = GuiButton((Rectangle){ 120, 850, 100, 30 }, "Next");     // Fixed position for Next button
+
 
         // Update current page based on button presses
         if (prev_button_pressed && current_page > 0) {
@@ -415,7 +439,7 @@ void DrawListStudentsUI() {
         }
 
         // Draw current page indicator
-        DrawText(TextFormat("Page %d of %d", current_page + 1, total_pages), 250, startY + 10, 20, DARKGRAY);
+        DrawText(TextFormat("Page %d of %d", current_page + 1, total_pages), 250, 850, 20, DARKGRAY);
     }
 
     free(students);
