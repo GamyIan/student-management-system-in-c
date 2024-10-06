@@ -16,6 +16,8 @@ int main() {
 
     int current_action = 4;  // Start with "List All Students" as default
     bool confirm_button_pressed = false;
+    bool edit_button_pressed = false;
+    bool save_button_pressed = false;
 
     // Main loop
     while (!WindowShouldClose()) {
@@ -38,7 +40,7 @@ int main() {
             case 0: DrawAddStudentUI(&confirm_button_pressed); break;
             case 1: DrawRemoveStudentUI(&confirm_button_pressed); break;
             case 2: DrawSearchStudentUI(&confirm_button_pressed); break;
-            case 3: DrawEditStudentUI(&confirm_button_pressed); break;
+            case 3: DrawEditStudentUI(&edit_button_pressed, &save_button_pressed); break;
             case 4: DrawListStudentsUI(); break;
         }
 
