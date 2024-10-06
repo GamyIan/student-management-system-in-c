@@ -8,8 +8,8 @@
 
 int main() {
     // Initialization
-    const int screenWidth = 1280;
-    const int screenHeight = 720;
+    const int screenWidth = 1600;
+    const int screenHeight = 900;
 
     InitWindow(screenWidth, screenHeight, "Student Management System");
     SetTargetFPS(60);

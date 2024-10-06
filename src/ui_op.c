@@ -10,7 +10,7 @@
 #define MAX_INPUT_LEN 100
 
 // Static variables to store input data across frames
-static char uid_input[MAX_INPUT_LEN] = {0};
+static char uid_input[MAX_INPUT_LEN] = {0};  // Only this one is being used.
 /*
 static char roll_number_input[MAX_INPUT_LEN] = {0};
 static char name[MAX_INPUT_LEN] = {0};
@@ -20,7 +20,7 @@ static char oe1[MAX_INPUT_LEN] = {0};
 static char oe2[MAX_INPUT_LEN] = {0};
 */
 
-// Static variables for textbox focus
+// Static variable for textbox focus
 static int current_focused_box = -1;  // -1 means no box is focused
 
 // Function to manage focus and input handling for textboxes
@@ -85,7 +85,7 @@ void DrawAddStudentUI(bool *confirm_button_pressed) {
             return;  // Early exit if inputs are invalid
         }
 
-        // Convert UID and Roll Number to integers
+        // Converting UID and Roll Number to integers
         int uid = atoi(uid_input);
         int roll_number = atoi(roll_number_input);
 
